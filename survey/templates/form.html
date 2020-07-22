@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang=en>
+
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">2020 Touch rugby registration</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+
+    <form name = rugby action="/form" method="post">
+            <div class="row">
+                <div class="col">
+                    <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name" >
+                </div>
+                <div class="col">
+                    <input name="surname" type="text" class="form-control" id="surname" placeholder="Last name" >
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" >
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            Registered with England touch
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="registered" id="exampleRadios1" value="Yes">
+                    <label class="form-check-label" for="exampleRadios1">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="registered" id="exampleRadios2" value="No">
+                    <label class="form-check-label" for="exampleRadios2">
+                    No
+                </label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="sel1">Availability for Saturday 7th Feb</label>
+                    <select class="custom-select" name="sel1" id="sel1">
+                        <option value="">Please Select</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                        <option value="Maybe">Maybe</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="sel2">Availability for Saturday 14th Feb</label>
+                    <select class="custom-select" name="sel2" id="sel2">
+                        <option value="">Please Select</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                        <option value="Maybe">Maybe</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="sel3">Availability for Saturday 21st Feb</label>
+                    <select class="custom-select" name="sel3" id="sel3">
+                        <option value="">Please Select</option>
+                        <option value="Available">Available</option>
+                        <option value="Unavilable">Unavailable</option>
+                        <option value="Maybe">Maybe</option>
+                    </select>
+            </div>
+
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit" onclick="return validateForm()">Register for touch !</button>
+
+    </form>
+
+<script>
+
+
+
+function validateForm() {
+  var x = document.forms["rugby"]["firstname"].value;
+  if (x == "") {
+    alert("First name must be filled out");
+    return false;
+  }
+  var y = document.forms["rugby"]["surname"].value;
+  if(y == "") {
+      alert("Surname must be filled out");
+      return false;
+  }
+  var z = document.forms["rugby"]["email"].value;
+  if(z == "") {
+      alert("Email must be filled out");
+      return false;
+  }
+  var a = document.forms["rugby"]["registered"].value;
+  if(a == ""){
+      alert("Please select whether you are registered with England touch")
+      return false;
+  }
+  var b = document.forms["rugby"]["sel1"].value;
+  if(b == ""){
+      alert("Please give your availibiity for the 7th of February")
+      return false;
+  }
+   var c = document.forms["rugby"]["sel2"].value;
+  if(c == ""){
+      alert("Please give your availibiity for the 14th of February")
+      return false;
+  }
+  var d = document.forms["rugby"]["sel3"].value;
+  if(d == ""){
+      alert("Please give your availibiity for the 21st of February")
+      return false;
+  }
+}
+
+
+
+</script>
+
+{% endblock %}
